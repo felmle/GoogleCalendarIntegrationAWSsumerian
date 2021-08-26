@@ -1,16 +1,23 @@
 # GoogleCalendarIntegrationAWSsumerian  
 ##Goal
+
 The goal of this project is to connect AWS Sumerian to the Google Calendar Api.
 So that a person could request the creation of an event via voice Input that will then be created and inserted into the connected Goolge calendar  
+
 ##Working Principle
+
 Connecting the Google Calendar Api to Sumerian is not possible directly but over a series of other AWS services.  
+
 ###AWS Sumerian
+
 In Sumerian the host is responsible for managing the audio in and output as well as the communication to AWS Lex.  
 When the host received a complete Audio Input from the User (Start the recording by holding down 'Space', stopping it by releasing 'Space')
 It sends the data to the connected AWS Lex Bot. 
 
 After the further processing, Sumerian will receive a Text as answer which the host will read out loud to the User.  
+
 ###AWS Lex
+
 Lex receives the raw Audio input from AWS Sumerian. It is responsible for processing the audio and extracting information from it.  
 Lex works with Intents. This Lex has two Intents working.
 - CreateEvent  
@@ -18,6 +25,7 @@ Lex works with Intents. This Lex has two Intents working.
 
 
 ####CreateEvent
+
 CreateEvent listens for the following sentence: "Ich möchte einen Termin planen" or slight variants of this sentence.  
 It has the following parameters:
 - Name *The name of the Event*
@@ -28,6 +36,7 @@ It has the following parameters:
 Lex will ask the user about each one of the parameter using the Sumerian Host.
 
 ####ListEvents
+
 ListEvents listens for the following sentences:
 - Was sind meine nächsten *x* Termine?
 - Was ist mein nächster Termin?
